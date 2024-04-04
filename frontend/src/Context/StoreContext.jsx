@@ -16,9 +16,7 @@ const StoreContextProvider = ({ children }) => {
     setCartItem((prv) => ({ ...prv, [itemId]: prv[itemId] - 1 }));
   };
 
-  useEffect(()=>{
-   console.log(cartItem);
-  },[cartItem])
+  // useEffect(()=>{},[cartItem])
   const contextValue = {
     food_list,
     addToCart,
