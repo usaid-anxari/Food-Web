@@ -2,6 +2,9 @@ import React from "react";
 import "./Header.css";
 
 const Header = () => {
+  const goMenu =()=>{
+      <a href="explore-menu"></a>
+  }
   return (
     <div className="header">
       <div className="header-content">
@@ -12,7 +15,7 @@ const Header = () => {
           mission is to satisfy your carvings elevate your dinig experince, one
           delicious meal at a time.
         </p>
-        <button>View Menu</button>
+        <button><a href="#explore-menu" >View Menu</a></button>  
       </div>
     </div>
   );
