@@ -6,11 +6,14 @@ import Home from './pages/Home/Home'
 import Cart from './pages/Cart/Cart' 
 import PlaceOrder from './pages/OrderPlace/PlaceOrder' 
 import Login from './components/Login/Login'
+import {ToastContainer} from 'react-toastify'
+import 'react-toastify/ReactToastify.css'
 
 const App = () => {
   const [login, setLogin] = useState(false)
   return (
     <>
+    <ToastContainer />
     {login?<Login setLogin={setLogin}/>:<></>}
     <div className='app'>
       <Navbar  setLogin={setLogin}/>

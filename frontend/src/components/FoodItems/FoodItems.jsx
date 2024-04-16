@@ -4,11 +4,12 @@ import { assets } from '../../assets/assets'
 import { useStore } from '../../Context/StoreContext'
 
 const FoodItems = ({name,id,price,description,image}) => {
-  const {cartItem,addToCart,removeToCart} = useStore()
+  const {cartItem,addToCart,removeToCart,url} = useStore()
   return (
     <div className='food-item'>
         <div className='food-item-img-container'>
-            <img className='food-item-img' src={image} alt="" />
+            <img className='food-item-img' src={url+'/images/'+image} alt="" />
+            
             {
               !cartItem[id]
               ? <img className='add' onClick={()=> addToCart(id)} src={assets.add_icon_white}   /> 
