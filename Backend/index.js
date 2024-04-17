@@ -1,11 +1,13 @@
-import express from "express";
+import "dotenv/config";
 import cors from "cors";
+import express from "express";
 import { connectDB } from "./config/db.js";
 import foodRouter from "./routes/foodRoute.js";
 import userRoute from "./routes/userRoute.js";
-import 'dotenv/config'
+import cartRoute from "./routes/cartRoutes.js";
+import orderRoute from "./routes/orderRoute.js";
 
-// app config 
+// app config
 const app = express();
 const port = 3500;
 
@@ -16,17 +18,17 @@ app.use(cors());
 // MongoDb
 connectDB();
 
-// Food Route
-app.use('/api/food',foodRouter)
-app.use('/images',express.static('uploads'))
-
-// user Routes
-app.use('/api/user',userRoute)
+// All api endpoints
+app.use("/api/food", foodRouter);
+app.use("/images", express.static("uploads"));
+app.use("/api/user", userRoute);
+app.use("/api/cart", cartRoute);
+app.use('api/order',orderRoute)
 // routes
-app.get('/',(req,res)=>{
-  res.send('hello')
-})
+app.get("/", (req, res) => {
+  res.send("hello");
+});
 
-app.listen(port,()=>{
-   console.log(`server start on http://localhost:${port}`);
-})
+app.listen(port, () => {
+  console.log(`server start on http://localhost:${port}`);
+});

@@ -6,6 +6,7 @@ const userSchema = new mongoose.Schema(
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     cartData: { type: Object, default: {} },
+    updated: { type: Date, default: Date.now },
   },
   { minimize: false }
 );
