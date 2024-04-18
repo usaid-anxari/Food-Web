@@ -8,6 +8,8 @@ import PlaceOrder from './pages/OrderPlace/PlaceOrder'
 import Login from './components/Login/Login'
 import {ToastContainer} from 'react-toastify'
 import 'react-toastify/ReactToastify.css'
+import Verify from './pages/Verify/Verify'
+import MyOrders from './pages/MyOrder/MyOrder'
 
 const App = () => {
   const [login, setLogin] = useState(false)
@@ -21,6 +23,8 @@ const App = () => {
         <Route path='/' element={<Home />}/>
         <Route path='/cart' element={<Cart />}/>
         <Route path='/order' element={<PlaceOrder />}/>
+        <Route path='/verify' element={<Verify />}/>
+        <Route path='/myorders' element={<MyOrders />}/>
       </Routes>
     </div>
     <Footer />
