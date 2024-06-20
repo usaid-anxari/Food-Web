@@ -35,7 +35,6 @@ const PlaceOrder = () => {
         orderItems.push(itemInfo);
       }
     });
-    console.log(orderItems);
     let orderData = {
       address: data,
       items: orderItems,
@@ -47,7 +46,6 @@ const PlaceOrder = () => {
       const {session_url} = response.data;
       window.location.replace(session_url)
     }else{
-      console.log(response);
       toast.error(response.data.message)
     }
   };

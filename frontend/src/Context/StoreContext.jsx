@@ -10,21 +10,19 @@ const StoreContextProvider = ({ children }) => {
   const [cartItem, setCartItem] = useState([]);
   const [food_list, setFoodList] = useState([]);
 
-  // Fetch Food List
-  const fetchFoodList = async () => {
-    const response = await axios.get(url+'/api/food/list');
-    setFoodList(response.data.data)
-  };
-
   // Add To Cart
-  const addToCart = async(itemId) => {
+  const addToCart = async (itemId) => {
     if (!cartItem[itemId]) {
       setCartItem((prv) => ({ ...prv, [itemId]: 1 }));
     } else {
       setCartItem((prv) => ({ ...prv, [itemId]: prv[itemId] + 1 }));
     }
-    if(token){
-           await axios.post(url+'/api/cart/add',{itemId},{headers:{token}})
+    if (token) {
+      await axios.post(
+        url + "/api/cart/add",
+        { itemId },
+        { headers: { token } }
+      );
     }
   };
 
@@ -32,15 +30,13 @@ const StoreContextProvider = ({ children }) => {
   const removeToCart = async (itemId) => {
     setCartItem((prv) => ({ ...prv, [itemId]: prv[itemId] - 1 }));
     if (token) {
-      await axios.post(url+'/api/cart/remove',{itemId},{headers:{token}})
+      await axios.post(
+        url + "/api/cart/remove",
+        { itemId },
+        { headers: { token } }
+      );
     }
   };
-
-  // Get Cart Data
-  const getCartData  = async (token)=>{
-     const response = await axios.post(url+'/api/cart/get',{},{headers:{token}})
-     setCartItem(response.data.cartData)
-  }
 
   // Get The Total Amount
   const getTotalAmount = () => {
@@ -53,16 +49,33 @@ const StoreContextProvider = ({ children }) => {
     }
     return totalAmount;
   };
+  
+ 
+  // Fetch Food List
+  const fetchFoodList = async () => {
+    const response = await axios.get(url + "/api/food/list");
+    setFoodList(response.data.data);
+  };
+
+   // Get Cart Data
+   const getCartData = async (token) => {
+    const response = await axios.post(
+      url + "/api/cart/get",
+      {},
+      { headers: { token } }
+    );
+    setCartItem(response.data.cartData);
+  };
 
   useEffect(() => {
     async function loadData() {
       await fetchFoodList();
       if (localStorage.getItem("token")) {
         setToken(localStorage.getItem("token"));
-        await getCartData(localStorage.getItem('token'));
+        await getCartData(localStorage.getItem("token"));
       }
     }
-    loadData()
+    loadData();
   }, []);
   const contextValue = {
     food_list,

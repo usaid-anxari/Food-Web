@@ -9,9 +9,9 @@ const Navbar = ({setLogin}) => {
   const {getTotalAmount,token,setToken} = useStore();
   const navigate = useNavigate();
   const logout =()=>{
-    navigate('/')
-    setToken('')
     localStorage.removeItem('token')
+    setToken('')
+    navigate('/')
   }
 
   return (
