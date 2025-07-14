@@ -5,12 +5,14 @@ import { addFood,foodList,removeFood } from "../controllers/foodControllers.js";
 const foodRouter = express.Router()
 
 // Storage Engine
-const storage = multer.diskStorage({
-    destination:'uploads',
-    filename:(req,file,cb)=>(
-        cb(null,`${Date.now()},${file.originalname}`)
-    )
-})
+// const storage = multer.diskStorage({
+//     destination:'uploads',
+//     filename:(req,file,cb)=>(
+//         cb(null,`${Date.now()},${file.originalname}`)
+//     )
+// })
+const storage = multer.memoryStorage(); 
+
 
 // Upload Route
 const upload = multer({storage:storage})
