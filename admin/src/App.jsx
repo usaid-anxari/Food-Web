@@ -10,7 +10,7 @@ import 'react-toastify/ReactToastify.css'
 
 const App = () => {
   
-  const url = "http://localhost:3500";
+  const url = import.meta.env.VITE_BASE_URL;
   return (
     <div>
       <ToastContainer />
