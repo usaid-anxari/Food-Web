@@ -5,7 +5,7 @@ import axios from "axios";
 export const StoreContext = createContext(null);
 
 const StoreContextProvider = ({ children }) => {
-  const url = "http://localhost:3500";
+  const url = import.meta.env.VITE_BASE_URL;
   const [token, setToken] = useState("");
   const [cartItem, setCartItem] = useState([]);
   const [food_list, setFoodList] = useState([]);
