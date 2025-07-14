@@ -25,7 +25,7 @@ app.use("/api/user", userRoute);
 app.use("/api/cart", cartRoute);
 app.use('/api/order',orderRoute)
 // routes
-app.get("/", (req, res) => {
+app.get("/status", (req, res) => {
   res.send("hello");
 });
 
