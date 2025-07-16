@@ -1,0 +1,48 @@
+.home {
+  width: 70%;
+  margin-left: max(5vw, 25px);
+  margin-top: 50px;
+  color: #6d6d6d;
+  font-size: 16px;
+}
+
+.home form {
+  gap: 20px;
+}
+
+.home-image-upload img {
+  width: 120px;
+  margin-top: 8px;
+  border: 2px dashed gray;
+  cursor: pointer;
+}
+
+.home-product-name,
+.home-product-description {
+  width: max(40%, 280px);
+}
+
+.home-product-name input,
+.home-product-description textarea {
+  padding: 10px;
+}
+
+.home-category-price {
+  display: flex;
+  gap: 30px;
+}
+
+.home-category-price select,
+.home-category-price input {
+  max-width: 120px;
+  padding: 10px;
+}
+
+.home-btn {
+  max-width: 120px;
+  border: none;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
